@@ -20,7 +20,7 @@ a {
 .header_top button {
   width: 100px;
   height: 30px;
-  font-size: 20px;
+  font-size: 15px;
   border-radius: 5px;
   background-color: lightgreen;
   color: #000;
@@ -28,7 +28,7 @@ a {
 .header_top input {
   width: 100px;
   height: 30px;
-  font-size: 20px;
+  font-size: 15px;
   border-radius: 5px;
   background-color: lightgreen;
   color: #000;
