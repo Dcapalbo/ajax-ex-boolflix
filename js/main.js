@@ -1,32 +1,49 @@
 $(document).ready(function() {
+   //make a function to show the films data when writing inside the input
+   $(".searchbar").click(function(){
+     //clean the val inside the input
+     $(this).val("");
+   });
+   //make a variable for the Api and the ApiKey
+   var api = "https://api.themoviedb.org/3/search/movie";
+   var apiKey = "765dd26370a4e82d38aa3ee95f3f61e9";
+   PrintMoviesData(films)
+});
+   //FUNCTION
+   function PrintMoviesData(films) {
+     var source = $("#movies-template")
+     var template = Handlebars.compile(source);
+   //make an ajax call
+   $.ajax(
+    {
+      "url": api,
+      "data":{
+        "api_key": apiKey,
+        "query": "Blade Runner",
+        "page": "1",
+     },
+      "method": "GET",
+      "success": function(data) {
+        var films = data.results;
+        console.log(films);
+     },
+       "error": function (err) {
+        alert("There is an error with the Ajax call. "+ err);
 
-//FUNCTION
-var api = "https://api.themoviedb.org/3/search/movie?api_key=765dd26370a4e82d38aa3ee95f3f61e9&language=en-US&query=blade%20runner&page=1&include_adult=false";
-var source = $("#movies-template")
-var template = Handlebars.compile(source);
-function renderMoviesData(data) {
-  //make a variable for the API
-  //make an ajax call
-  $.ajax(
-   {
-     "url": api,
-     "method": "GET",
-     "success": function(data) {
-       console.log(data);
-       for (var i = 0; i < data.length; i++) {
-         var context = {
-          title: data.title,
-          originaltitle: data.originaltitle,
-          language: data.language,
-          vote: data.vote
+       //make a cicle for to get inside of the api Array objects
+       for (var i = 0; i < films.length; i++) {
+          var context = {
+           //make some property which are going to be inserted in the placeholders
+           title: films.title,
+           originaltitle: films.original_title,
+           language: films.original_language,
+           vote: films.vote_average
          };
+         //make an html variable with the handlebars context
          var html = template(context);
+         //append the html inside the DOM
          $("#movies_list").append(html);
        }
-    },
-      "error": function (err) {
-       alert("There is an error with the Ajax call. "+ err);
-      }
-    });
- }
-});
+     }
+   })
+ };
