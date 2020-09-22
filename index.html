@@ -13,9 +13,26 @@
    <title>ajax-ex-boolflix</title>
   </head>
   <body>
-  <script id="entry-template" type="text/x-handlebars-template">
+   <header>
+    <!-- movies lists -->
+    <div class="header_top">
+     <div class="films_searchbar">
+      <input class="searchbar" type="search" value="search"></input>
+      <button type="button" name="button">Submit</button>
+     </div>
+     <ul id="movies_list">
+
+     </ul>
+    </div>
+
+    <!-- end movies lists -->
+   </header>
+  <script id="movies-template" type="text/x-handlebars-template">
    <div class="entry">
     <h1>{{title}}</h1>
+    <h3>{{originaltitle}}</h3>
+    <p>{{language}}</p>
+    <p>{{vote}}</p>
     <div class="body">{{body}}</div>
    </div>
   </script>

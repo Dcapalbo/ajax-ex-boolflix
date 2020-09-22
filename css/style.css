@@ -3,3 +3,31 @@
   padding: 0px;
   margin: 0px;
 }
+a {
+  color: #000;
+}
+/* basic values */
+/* specific css style */
+/* header */
+.header_top {
+  width: 100vh;
+  height: 100vh;
+  padding: 20px;
+  margin: auto;
+  background-color: lightblue;
+  position: relative;
+}
+.header_top button {
+  width: 100px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: lightgreen;
+  color: #000;
+}
+.header_top input {
+  width: 100px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: lightgreen;
+  color: #000;
+}
