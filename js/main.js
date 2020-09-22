@@ -7,6 +7,7 @@ $(document).ready(function() {
      var searchFilms = $(".films_input").val();
      //invoke the function to print the data
      PrintMoviesData(searchFilms);
+     console.log(searchFilms);
      // clean the input again
      $(".films_input").val();
    });
@@ -30,8 +31,8 @@ $(document).ready(function() {
      },
       "method": "GET",
       "success": function(data) {
+        console.log(data);
         var films = data.response;
-        console.log(films);
         //make a cicle for to get inside of the api Array objects
         for (var i = 0; i < films.length; i++) {
            var context = {
