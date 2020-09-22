@@ -7,12 +7,13 @@ $(document).ready(function() {
    //make a variable for the Api and the ApiKey
    var api = "https://api.themoviedb.org/3/search/movie";
    var apiKey = "765dd26370a4e82d38aa3ee95f3f61e9";
-   PrintMoviesData(films)
 });
    //FUNCTION
    function PrintMoviesData(films) {
      var source = $("#movies-template")
+     console.log(source);
      var template = Handlebars.compile(source);
+     console.log(template);
    //make an ajax call
    $.ajax(
     {
@@ -24,7 +25,7 @@ $(document).ready(function() {
      },
       "method": "GET",
       "success": function(data) {
-        var films = data.results;
+        var films = data.response;
         console.log(films);
      },
        "error": function (err) {
