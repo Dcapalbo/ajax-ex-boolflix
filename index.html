@@ -14,25 +14,42 @@
   </head>
   <body>
    <header>
-    <!-- movies lists -->
+    <!-- search_bar section -->
     <div class="header_top">
      <div class="films_searchbar">
       <input class="films_input" type="search" placeholder="search">
       <button class="search_button" type="button" name="button">Submit</button>
      </div>
+     <!-- search_bar section -->
+     <!-- movies lists -->
      <ul id="movies_list">
      </ul>
-    </div>
     <!-- end movies lists -->
-   </header>
+    <ul id="series_list">
+    </ul>
+    <!-- series list -->
+   </div>
+  </header>
+  <!-- movies template -->
   <script id="movies_template" type="text/x-handlebars-template">
-   <li class="entry">
+   <li>
     <h1>Title: {{title}}</h1>
     <h3>Original title: {{originaltitle}}</h3>
     <p>Original Language: {{language}}</p>
-    <p>Average Vote: {{vote}}</p>
+    <p>Vote: {{vote}}</p>
   </li>
   </script>
+  <!-- end movies template -->
+  <!-- series template -->
+  <script id="series_template" type="text/x-handlebars-template">
+   <li>
+    <h1>Name: {{name}}</h1>
+    <h3>Original Name: {{originalname}}</h3>
+    <p>Original Language: {{language}}</p>
+    <p>Vote: {{vote}}</p>
+  </li>
+  </script>
+  <!-- end series template -->
   <script src="js/main.js" charset="utf-8"></script>
   </body>
 </html>
