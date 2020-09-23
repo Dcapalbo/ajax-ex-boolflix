@@ -44,7 +44,7 @@ $(document).ready(function() {
      var stars = "";
 
      for (var i = 0; i < newVote; i++){
-       var stars += html;
+       stars += html;
      }
      return stars;
    }
