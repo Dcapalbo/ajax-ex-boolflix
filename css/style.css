@@ -38,11 +38,21 @@ li {
   color: #000;
   cursor: pointer;
 }
+/* movies list */
 #movies_list {
   margin-top: 20px;
   padding: 20px;
 }
+/* series list */
 #series_list {
   margin-top: 20px;
   padding: 20px;
+}
+/* star list */
+.star_list{
+  display: flex;
+  list-style: none;
+}
+.star i{
+  color: yellow;
 }

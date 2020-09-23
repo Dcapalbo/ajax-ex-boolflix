@@ -22,10 +22,10 @@
      </div>
      <!-- search_bar section -->
      <!-- movies lists -->
-     <ul id="movies_list">
+     <ul class="star_list" id="movies_list">
      </ul>
     <!-- end movies lists -->
-    <ul id="series_list">
+    <ul class="star_list" id="series_list">
     </ul>
     <!-- series list -->
    </div>
@@ -37,6 +37,8 @@
     <h3>Original title: {{originaltitle}}</h3>
     <p>Original Language: {{language}}</p>
     <p>Vote: {{vote}}</p>
+    <ul class="star_list">
+    </ul>
   </li>
   </script>
   <!-- end movies template -->
@@ -47,9 +49,18 @@
     <h3>Original Name: {{originalname}}</h3>
     <p>Original Language: {{language}}</p>
     <p>Vote: {{vote}}</p>
+    <ul class="star_list">
+    </ul>
   </li>
   </script>
   <!-- end series template -->
+  <!-- star template -->
+  <script id="stars-template" type="text/x-handlebars-template">
+    <li class="star">
+     <span><i class="fas fa-star"></i></span>
+    </li>
+  </script>
+  <!-- end star template -->
   <script src="js/main.js" charset="utf-8"></script>
   </body>
 </html>
