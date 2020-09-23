@@ -14,7 +14,6 @@ li {
 /* header */
 .header_top {
   width: 100vh;
-  height: 200vh;
   padding: 20px;
   margin: auto;
   background-color: lightblue;
@@ -40,19 +39,21 @@ li {
 }
 /* movies list */
 #movies_list {
-  margin-top: 20px;
+  margin-top: 40px;
   padding: 20px;
 }
 /* series list */
 #series_list {
-  margin-top: 20px;
+  margin-top: 40px;
   padding: 20px;
 }
 /* star list */
-.stars_list li{
+.stars  {
+  display: inline;
   list-style: none;
-  display: inline-block;
+  color: #e6e600;
+  margin-bottom: 10px;
 }
-.star i{
-  color: yellow;
+.flag_img{
+  width: 20px;
 }

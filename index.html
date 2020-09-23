@@ -33,10 +33,10 @@
   <!-- movies template -->
   <script id="movies_template" type="text/x-handlebars-template">
    <li>
-    <h1>Title: {{title}}</h1>
-    <h3>Original title: {{originaltitle}}</h3>
-    <p>Original Language: {{language}}</p>
-    <p>Vote: {{vote}}</p>
+    <h1>Movie: {{title}} </h1>
+    <h3>Original title: {{originaltitle}} </h3>
+    <img class="flag_lang" src="https://www.countryflags.io/{{original_language}}/shiny/64.png">
+    <p>Vote: {{vote}} </p>
     <ul class="stars_list">
     </ul>
   </li>
@@ -45,18 +45,18 @@
   <!-- series template -->
   <script id="series_template" type="text/x-handlebars-template">
    <li>
-    <h1>Name: {{name}}</h1>
-    <h3>Original Name: {{originalname}}</h3>
-    <p>Original Language: {{language}}</p>
-    <p>Vote: {{vote}}</p>
+    <h1>Series: {{name}} </h1>
+    <h3>Original Title: {{originalname}} </h3>
+    <img class="flag_lang" src="https://www.countryflags.io/{{original_language}}/shiny/64.png">
+    <p>Vote: {{vote}} </p>
     <ul class="stars_list">
     </ul>
   </li>
   </script>
   <!-- end series template -->
   <!-- star template -->
-  <script id="stars-template" type="text/x-handlebars-template">
-    <li class="star">
+  <script id="stars_template" type="text/x-handlebars-template">
+    <li class="stars">
      <span><i class="fas fa-star"></i></span>
     </li>
   </script>
