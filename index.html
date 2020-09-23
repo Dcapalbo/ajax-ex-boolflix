@@ -17,7 +17,7 @@
     <!-- movies lists -->
     <div class="header_top">
      <div class="films_searchbar">
-      <input class="films_input" type="search" value="search">
+      <input class="films_input" type="search" placeholder="search">
       <button class="search_button" type="button" name="button">Submit</button>
      </div>
      <ul id="movies_list">
@@ -26,12 +26,12 @@
     <!-- end movies lists -->
    </header>
   <script id="movies_template" type="text/x-handlebars-template">
-   <div class="entry">
+   <li class="entry">
     <h1>Title: {{title}}</h1>
     <h3>Original title: {{originaltitle}}</h3>
     <p>Original Language: {{language}}</p>
     <p>Average Vote: {{vote}}</p>
-   </div>
+  </li>
   </script>
   <script src="js/main.js" charset="utf-8"></script>
   </body>

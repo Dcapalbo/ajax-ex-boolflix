@@ -8,16 +8,14 @@ $(document).ready(function() {
 // https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=scrubs
 
    //make a function to show the films data when writing inside the input
-   $(".films_input").click(function(){
+   $(".search_button").click(function(){
      // takes the input value
-     $(".films_input").val("");
      var printMovies = $(".films_input").val();
-     //invoke the function to print the data
-     PrintMoviesData(printMovies);
+     $(".films_input").val("");
      // Invoke a function to clear the DOM
      Clear();
-     // clear the input again
-     $("films_input").remove(printMovies);
+     //invoke the function to print the data
+     PrintMoviesData(printMovies);
    });
    //make a variable for the Api and the ApiKey
 });
@@ -62,5 +60,5 @@ $(document).ready(function() {
 };
    //make a function to clear the ul inside the DOM
    function Clear() {
-     $("#movies_list").remove("li");
-   }
+     $("#movies_list li").remove();
+   };
