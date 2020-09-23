@@ -49,9 +49,9 @@ li {
   padding: 20px;
 }
 /* star list */
-.star_list{
-  display: flex;
+.stars_list li{
   list-style: none;
+  display: inline-block;
 }
 .star i{
   color: yellow;
