@@ -11,7 +11,7 @@ a {
 /* header */
 .header_top {
   width: 100vh;
-  height: 100vh;
+  height: 200vh;
   padding: 20px;
   margin: auto;
   background-color: lightblue;
@@ -24,6 +24,7 @@ a {
   border-radius: 5px;
   background-color: lightgreen;
   color: #000;
+  cursor: pointer
 }
 .header_top input {
   width: 100px;
@@ -32,4 +33,9 @@ a {
   border-radius: 5px;
   background-color: lightgreen;
   color: #000;
+  cursor: pointer;
+}
+#movies_list {
+  margin-top: 20px;
+  padding: 20px;
 }
