@@ -38,7 +38,11 @@ $(document).ready(function() {
      var stars = "";
 
      for (var i = 0; i < newVote; i++){
-       stars += html;
+       if (i <= newVote) {
+         stars += html;
+       } else {
+         stars += html;
+       }
      }
      return stars;
    }
@@ -73,7 +77,7 @@ $(document).ready(function() {
       "success": function(data) {
         var results = data.results;
         //invoke the language function
-        conversionLanguage(originaLanguage);
+        conversionLanguage(language);
         //make a cicle for to get inside of the api Array objects
         for (var i = 0; i < results.length; i++) {
            var context = {
@@ -81,10 +85,11 @@ $(document).ready(function() {
             "title": results[i].title,
             "originaltitle": results[i].original_title,
             "vote": results[i].vote_average,
-            "original_language": originaLanguage
+            "original_language": language,
+            "thumbnail": results[i].poster_path
           }
           //make a variable for the new context value
-          var originaLanguage = results[i].original_language;
+          var language = results[i].original_language;
           //invoke the conversionVote function
           conversionVote(vote);
           //make a variable to take the vote results and convert it in stars value
@@ -122,7 +127,7 @@ $(document).ready(function() {
       "success": function(data) {
         var results = data.results;
         //invoke the language function
-        conversionLanguage(originaLanguage);
+        conversionLanguage(language);
         //make a cicle for to get inside of the api Array objects
         for (var i = 0; i < results.length; i++) {
            var context = {
@@ -130,10 +135,11 @@ $(document).ready(function() {
             "name": results[i].name,
             "originalname": results[i].original_name,
             "vote": results[i].vote_average,
-            "original_language": originaLanguage
+            "original_language": language,
+            "thumbnail": results[i].poster_path
           };
           //make a variable for the new context value
-          var originaLanguage = results[i].original_language;
+          var language = results[i].original_language;
           // invoke the conversionVote function
           conversionVote(vote);
           //make a variable to take the vote results and convert it in stars value
