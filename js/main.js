@@ -8,7 +8,7 @@ $(document).ready(function() {
       $(".films_input").val("");
       // Invoke a function to clear the DOM
       Clear();
-      //invoke the function to print the movies data
+      //invoke the function to print the movies and series data
       PrintMoviesData(printMovies);
       PrintSeriesData(printSeries);
     }
@@ -48,6 +48,7 @@ $(document).ready(function() {
    }
    //make a function to control the presence of the language inside the site and to change it where it's usefull
    function conversionLanguage(language) {
+     //make conditions
      if (language == "en") {
        return "gb";
      } else if (language == "ja") {
@@ -55,6 +56,11 @@ $(document).ready(function() {
      } else {
        return language;
      }
+   }
+   //make a function searching for the images inside the api
+   function SearchImage (image) {
+	  image = 'https://image.tmdb.org/t/p/w342/' + image;
+	  return image;
    }
    //make a function to print movies Data inside the DOM
    function PrintMoviesData(printMovies) {
@@ -86,7 +92,7 @@ $(document).ready(function() {
             "originaltitle": results[i].original_title,
             "vote": results[i].vote_average,
             "original_language": language,
-            "thumbnail": results[i].poster_path
+            "poster_path": SearchImage(results[i].poster_path)
           }
           //make a variable for the new context value
           var language = results[i].original_language;
@@ -126,8 +132,6 @@ $(document).ready(function() {
       "method": "GET",
       "success": function(data) {
         var results = data.results;
-        //invoke the language function
-        conversionLanguage(language);
         //make a cicle for to get inside of the api Array objects
         for (var i = 0; i < results.length; i++) {
            var context = {
@@ -136,8 +140,10 @@ $(document).ready(function() {
             "originalname": results[i].original_name,
             "vote": results[i].vote_average,
             "original_language": language,
-            "thumbnail": results[i].poster_path
+            "poster_path": SearchImage(results[i].poster_path)
           };
+          //invoke the language function
+          conversionLanguage(language);
           //make a variable for the new context value
           var language = results[i].original_language;
           // invoke the conversionVote function
