@@ -6,49 +6,55 @@
 a {
   color: #000;
 }
+h1, h3, li {
+  margin-top: 20px;
+}
 li {
   list-style: none;
+}
+body {
+  background-color: grey;
+  overflow-y: scroll;
+}
+.d_none {
+  display: none;
 }
 /* basic values */
 /* specific css style */
 /* header */
 .header_top {
-  width: 100vh;
-  padding: 20px;
-  margin: auto;
-  background-color: lightblue;
-  position: relative;
+  width: 100%;
+  padding: 30px;
+  height: 150px;
+  background-color: #000;
+  justify-content: space-between;
 }
-.header_top button {
-  width: 100px;
-  height: 30px;
-  font-size: 15px;
-  border-radius: 5px;
-  background-color: lightgreen;
-  color: #000;
-  cursor: pointer
-}
-.header_top button:hover {
-  color: crimson;
+
+.header_top input:hover {
   transition: 1s;
 }
-.header_top input {
-  width: 100px;
+.header_top .films_input {
+  width: 200px;
   height: 30px;
-  font-size: 15px;
-  border-radius: 5px;
-  background-color: lightgreen;
-  color: #000;
+  font-size: 20px;
+  margin-top: 20px;
+  padding-left: 15px;
+  border-radius: 10px;
+  color: crimson;
+  background-color: lightblue;
   cursor: pointer;
+  font-weight: bold;
+  border-radius: 20px;
+  float: right;
 }
 /* movies list */
 #movies_list {
-  margin-top: 40px;
+  margin-top: 150px;
   padding: 20px;
 }
 /* series list */
 #series_list {
-  margin-top: 40px;
+  margin-top: 150px;
   padding: 20px;
 }
 /* star list */
@@ -57,4 +63,12 @@ li {
   list-style: none;
   color: #e6e600;
   margin-bottom: 10px;
+}
+/* star list */
+/* logo */
+.boolflix_logo {
+  float: left;
+  margin-bottom: 30px;
+  width: 250px;
+  height: 100px;
 }

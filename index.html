@@ -16,9 +16,9 @@
    <header>
     <!-- search_bar section -->
     <div class="header_top">
+     <img class="boolflix_logo" src="img/boolflix_logo.png" alt="logo boolflix">
      <div class="films_searchbar">
       <input class="films_input" type="search" placeholder="search">
-      <button class="search_button" type="button" name="button">Submit</button>
      </div>
      <!-- search_bar section -->
      <!-- movies lists -->
@@ -32,23 +32,25 @@
   </header>
   <!-- movies template -->
   <script id="movies_template" type="text/x-handlebars-template">
-   <li>
-    <h1>Movie: {{title}}</h1>
-    <h3>Original title: {{originaltitle}}</h3>
-    <li><img src="{{poster_path}}" alt="null"></li>
-    <li><p>Overview: {{overview}}</p></li>
-    <li><img class="flag_lang" src="https://www.unknown.nu/flags/images/{{original_language}}-100">
-    <li>Vote: {{vote}}</li>
-    <ul class="stars_list">
-    </ul>
-   </li>
+   <div class="card_wrapper">
+    <li class="d_none">
+     <h1>Movie: {{title}}</h1>
+     <h3>Original title: {{originaltitle}}</h3>
+     <li><img class="film_thumbnail" src="{{poster_path}}" alt="null"></li>
+     <li>Overview: {{overview}}</li>
+     <li>Vote: {{vote}}</li>
+     <li><img class="flag_lang" src="https://www.unknown.nu/flags/images/{{original_language}}-100"></li>
+     <ul class="stars_list">
+     </ul>
+    </li>
+   </div>
   </script>
   <!-- end movies template -->
   <!-- star template -->
   <script id="stars_template" type="text/x-handlebars-template">
-    <li class="stars">
-     <span><i class="fas fa-star"></i></span>
-    </li>
+   <li class="stars">
+    <span><i class="fas fa-star"></i></span>
+   </li>
   </script>
   <!-- end star template -->
   <script src="js/test.js" charset="utf-8"></script>
