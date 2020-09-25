@@ -1,3 +1,10 @@
+// MILESTONE 4:
+// Trasformiamo quello che abbiamo fatto fino ad ora in una vera e propria webapp, creando un layout completo simil-Netflix:
+// Un header che contiene logo e search bar
+// Dopo aver ricercato qualcosa nella searchbar, i risultati appaiono sotto forma di “card” in cui lo sfondo è rappresentato dall’immagine di copertina (consiglio la poster_path con w342)
+// Andando con il mouse sopra una card (on hover), appaiono le informazioni aggiuntive già prese nei punti precedenti più la overview
+// p.s. per altre aggiunte grafiche siete liberi di copiare da Netflix, ma solo dopo aver finito la base.
+
 $(document).ready(function() {
    //make a function which at the press enter will insert the data
    $(".films_input").keypress(function() {
@@ -81,6 +88,11 @@ $(document).ready(function() {
      },
       "method": "GET",
       "success": function(data) {
+        if (data.total_results > 0) {
+          PrintMoviesData(printMovies);
+        } else {
+          notFound(type);
+        }
         var results = data.results;
         //invoke the language function
         conversionLanguage(language);
@@ -108,7 +120,7 @@ $(document).ready(function() {
         }
       },
        "error": function (err) {
-        alert("There is an error with the Ajax call. "+ err);
+         alert("There is an error with the Ajax call. "+ err);
      }
   });
 };
@@ -122,8 +134,8 @@ $(document).ready(function() {
     var apiKey = "765dd26370a4e82d38aa3ee95f3f61e9";
    //make an ajax call
    $.ajax(
-    {
-      "url": api,
+     {
+       "url": api,
       "data":{
         "api_key": apiKey,
         "query": printSeries,
@@ -167,3 +179,7 @@ $(document).ready(function() {
      $("#movies_list li").remove();
      $("#series_list li").remove();
 };
+   //make a function which sends an alert when the serach inside the Dom is empty
+   function notFound(type){
+
+   }

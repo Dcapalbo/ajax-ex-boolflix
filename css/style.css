@@ -28,6 +28,10 @@ li {
   color: #000;
   cursor: pointer
 }
+.header_top button:hover {
+  color: crimson;
+  transition: 1s;
+}
 .header_top input {
   width: 100px;
   height: 30px;
@@ -53,7 +57,4 @@ li {
   list-style: none;
   color: #e6e600;
   margin-bottom: 10px;
-}
-.flag_img{
-  width: 20px;
 }
