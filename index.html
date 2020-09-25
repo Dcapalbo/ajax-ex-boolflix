@@ -33,10 +33,11 @@
   <!-- movies template -->
   <script id="movies_template" type="text/x-handlebars-template">
    <li>
-    <h1>Movie: {{title}}{{name}}</h1>
+    <h1>Movie: {{title}}</h1>
     <h3>Original title: {{originaltitle}}</h3>
     <li><img src="{{poster_path}}" alt="null"></li>
-    <li><img class="flag_lang" src="https://www.countryflags.io/{{original_language}}/shiny/64.png">
+    <li><p>Overview: {{overview}}</p></li>
+    <li><img class="flag_lang" src="https://www.unknown.nu/flags/images/{{original_language}}-100">
     <li>Vote: {{vote}}</li>
     <ul class="stars_list">
     </ul>
@@ -50,6 +51,6 @@
     </li>
   </script>
   <!-- end star template -->
-  <script src="test.js" charset="utf-8"></script>
+  <script src="js/test.js" charset="utf-8"></script>
   </body>
 </html>

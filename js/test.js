@@ -1,23 +1,31 @@
 $(document).ready(function(){
-  //make a function which at the press enter will insert the data
+  // MILESTONE 4:
+  // Trasformiamo quello che abbiamo fatto fino ad ora in una vera e propria webapp, creando un layout completo simil-Netflix:
+  // Un header che contiene logo e search bar
+  // Dopo aver ricercato qualcosa nella searchbar, i risultati appaiono sotto forma di “card” in cui lo sfondo è rappresentato dall’immagine di copertina (consiglio la poster_path con w342)
+  // Andando con il mouse sopra una card (on hover), appaiono le informazioni aggiuntive già prese nei punti precedenti più la overview
+
+  //make an event function which at the press enter will insert the data
   $(".films_input").keypress(function() {
    if (event.which == 13) {
-     //invoke a function which gives the value of the InputsData
-     inputsValue(value);
+     // make some variables which takes the value of the inputs data
+     var printValue = $(".films_input").val();
+     $(".films_input").val("");
      // Invoke a function to clear the DOM
      Clear();
-     //invoke the function to print the movies and series data
-     PrintInputsData(printMovies, printSeries);
+     //invoke the function to print movies and series data inside the DOM
+     PrintInputsData(printValue);
    }
   });
-  //make a function to show the films data when writing inside the input
+  //make an event function to show the films data when writing inside the input
   $(".search_button").click(function(){
-    //invoke a function which gives the value of the InputsData
-    inputsValue(value);
+    // make some variables which takes the value of the inputs data
+    var printValue = $(".films_input").val();
+    $(".films_input").val("");
     // Invoke a function to clear the DOM
     Clear();
-    //invoke the function to print the movies data
-    PrintInputsData(printMovies, printSeries);
+    //invoke the function to print movies and series data inside the DOM
+    PrintInputsData(printValue);
   });
 });
 
@@ -30,8 +38,9 @@ $(document).ready(function(){
     var source = $("#stars_template").html();
     var template = Handlebars.compile(source);
     var html = template();
+    // make empty stars variable
     var stars = "";
-
+    // make a cicle for to create the stars
     for (var i = 0; i < newVote; i++){
       if (i <= newVote) {
         stars += html;
@@ -39,26 +48,28 @@ $(document).ready(function(){
         stars += html;
       }
     }
+    // make a return of stars
     return stars;
   }
-  //make a function to control the presence of the language inside   the site and to change it where it's usefull
-  function conversionLanguage(language) {
-    //make conditions
-    if (language == "en") {
-      return "gb";
-    } else if (language == "ja") {
-      return "jp";
-    } else {
-      return language;
-    }
-  }
+
+  //make a function to clear the ul inside the DOM
+  function Clear() {
+    $("#movies_list li").remove();
+    $("#series_list li").remove();
+  };
+
   //make a function searching for the images inside the api
   function SearchImage (image) {
-   image = 'https://image.tmdb.org/t/p/w342/' + image;
-   return image;
+    if (image !== null) {
+    image = 'https://image.tmdb.org/t/p/w342/' + image;
+  } else if (image == null) {
+    image = "img/no_poster.png";
   }
+  return image
+ }
+
   //make a function to print movies Data inside the DOM
-  function PrintInputsData(printMovies, printSeries) {
+  function PrintInputsData(search) {
    //make the handlebars variables
    var source = $("#movies_template").html();
    var template = Handlebars.compile(source);
@@ -70,26 +81,25 @@ $(document).ready(function(){
       "url": "https://api.themoviedb.org/3/search/tv",
       "data":{
        "api_key": apiKey,
-       "query": printSeries,
+       "query": search,
        "page": "1",
      },
       "method": "GET",
       "success": function(data) {
-       var results = data.results;
      },
-      "error": function (err) {
+     "error": function (err) {
       alert("There is an error with the Ajax call. "+ err);
-     }
-    });
-    //make an ajax call for the movies
-    $.ajax(
-      {
-        "url": "https://api.themoviedb.org/3/search/movie",
-        "data":{
-         "api_key": apiKey,
-         "query": printMovies,
-         "page": "1",
-       },
+    }
+  });
+  //make an ajax call for the movies
+  $.ajax(
+     {
+      "url": "https://api.themoviedb.org/3/search/movie",
+      "data":{
+        "api_key": apiKey,
+        "query": search,
+        "page": "1",
+     },
        "method": "GET",
        "success": function(data) {
         var results = data.results;
@@ -101,39 +111,25 @@ $(document).ready(function(){
          "originaltitle": results[i].original_title || results[i].original_name,
          "vote": results[i].vote_average,
          "original_language": language,
-         "poster_path": SearchImage(results[i].poster_path)
+         "poster_path": SearchImage(results[i].poster_path),
+         "overview": results[i].overview
        }
-       //invoke the language function
-       conversionLanguage(language);
-       //make a variable for the new context value
        var language = results[i].original_language;
        //invoke the conversionVote function
        conversionVote(vote);
        //make a variable to take the vote results and convert it in stars value
        var vote = conversionVote(results[i].vote_average);
+      }
        $("#movies_list").append(vote);
        $("#series_list").append(vote);
-       //make an html variable with the handlebars context
+       //make an html variable with inside the handlebars context
        var html = template(context);
        //append the html inside the DOM
        $("#movies_list").append(html);
        $("#series_list").append(html);
+     },
+      "error": function (err) {
+       alert("There is an error with the Ajax call. "+ err);
      }
-   },
-    "error": function (err) {
-      alert("There is an error with the Ajax call. "+ err);
-  }
- });
-   //make a function which takes the value of the inputs Data
-   function inputsValue(value) {
-     // make some variables which takes the value of the Movies inputs
-     var printMovies = $(".films_input").val();
-     var printSeries = $(".films_input").val();
-     $(".films_input").val("");
-   };
-   //make a function to clear the ul inside the DOM
-   function Clear() {
-     $("#movies_list li").remove();
-     $("#series_list li").remove();
-   };
-};
+   });
+}

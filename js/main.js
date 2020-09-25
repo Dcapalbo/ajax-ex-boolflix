@@ -179,7 +179,7 @@ $(document).ready(function() {
      $("#movies_list li").remove();
      $("#series_list li").remove();
 };
-   //make a function which sends an alert when the serach inside the Dom is empty
+   //make a function which sends an alert when the search inside the Dom is empty
    function notFound(type){
 
    }
