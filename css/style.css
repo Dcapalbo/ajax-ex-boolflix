@@ -7,54 +7,83 @@ a {
   color: #000;
 }
 h1, h3, li {
+  color: #fff;
   margin-top: 20px;
 }
 li {
   list-style: none;
 }
+p {
+  font-size: 15px;
+}
 body {
-  background-color: grey;
-  overflow-y: scroll;
+  width: 100%;
+  margin: auto;
+  background-color: #000;
+  overflow-x: auto;
+  font-family: 'Lato', sans-serif;
 }
 .d_none {
   display: none;
 }
+.absolute {
+  position: absolute;
+}
+.relative {
+  position:relative;
+}
+.margin_top {
+  margin-top: 15px;
+}
 /* basic values */
 /* specific css style */
 /* header */
-.header_top {
-  width: 100%;
-  padding: 30px;
-  height: 150px;
-  background-color: #000;
+.header_container {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+  padding: 0 30px;
+  background-color: black;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
 }
-
-.header_top input:hover {
-  transition: 1s;
-}
-.header_top .films_input {
+.header_container button, input {
   width: 200px;
-  height: 30px;
+  height: 40px;
   font-size: 20px;
-  margin-top: 20px;
-  padding-left: 15px;
-  border-radius: 10px;
+  text-align: center;
   color: crimson;
   background-color: lightblue;
   cursor: pointer;
   font-weight: bold;
   border-radius: 20px;
-  float: right;
+}
+.films_searchbar:hover input {
+  transition: 1.5s;
+  transform: scale(1.2);
+  background-color: #000;
+  color: crimson;
+  border: none;
+}
+.subscribe_button:hover button {
+  transition: 1.5s;
+  transform: scale(1.2);
+  background-color: #000;
+  color: crimson;
+  border:none;
 }
 /* movies list */
 #movies_list {
-  margin-top: 150px;
+  margin-top: 100px;
   padding: 20px;
 }
 /* series list */
 #series_list {
-  margin-top: 150px;
+  margin-top: -40px;
   padding: 20px;
 }
 /* star list */
@@ -64,11 +93,46 @@ body {
   color: #e6e600;
   margin-bottom: 10px;
 }
-/* star list */
 /* logo */
 .boolflix_logo {
-  float: left;
-  margin-bottom: 30px;
   width: 250px;
   height: 100px;
+}
+/* films card */
+.card_wrapper {
+  background-color: #000;
+  margin: 15px;
+  float: left;
+  width: 342px;
+  height: 513px;
+  position: relative;
+}
+.film_cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.film_informations {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  padding: 10px;
+  position: absolute;
+}
+.flag_lang{
+  width: 25px;
+}
+.card_wrapper:hover .film_informations {
+  opacity:1;
+  transition: 1.5s;
+  transform: scale(1.1);
+  z-index: 1;
+  border: 1px solid #fff;
+  background-color: #000;
+  cursor: pointer;
+}
+.card_wrapper:hover .film_cover {
+  transition: 1.5s;
+  transform: scale(1.1);
+  z-index: 1;
 }
