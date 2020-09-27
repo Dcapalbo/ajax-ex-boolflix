@@ -45,27 +45,20 @@
   <script id="movies_template" type="text/x-handlebars-template">
    <li class="card_wrapper">
     <div class="film_cover">
-     <img class="film_thumbnail" src="{{poster_path}}"alt="null">
+     <img class="film_thumbnail" src="{{poster_path}}"alt="{{title}}">
     </div>
     <div class="film_informations">
-     <h1 class="margin_top">{{title}}</h1>
-     <h2 class="margin_top">Original title: {{originaltitle}}</h3>
-     <p class="margin_top"><strong>Overview:</strong> {{overview}}</p>
-     <p class="margin_top">{{idActors}}</p>
-     <p class="margin_top">{{genre}}</p>
-     <p class="margin_top stars_list">Vote: {{stars_list}}</p>
-     <p class="margin_top"><img class="flag_lang" src="https:/www.unknown.nu/flags/images/{{original_language}}-100"></p>
+     <h1>{{title}}</h1>
+     <h2>Original title: {{original title}}</h3>
+     <p><strong>Overview:</strong> {{overview}}</p>
+     <p>{{idActors}}</p>
+     <p>{{genre}}</p>
+     <p class="stars_list">Vote: {{vote}}</p>
+     <p><img class="flag_lang" src="https:/www.unknown.nu/flags/images/{{original_language}}-100"></p>
     </div>
    </li>
   </script>
   <!-- end movies template -->
-  <!-- star template -->
-  <script id="stars_template" type="text/x-handlebars-template">
-   <li class="stars">
-    <span><i class="fas fa-star d_none"></i></span>
-   </li>
-  </script>
-  <!-- end star template -->
   <script src="js/main.js" charset="utf-8"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 $(document).ready(function(){
   //make an event function which at the press enter will insert the data
-  $(".films_input").keypress(function() {
+  $(".films_input").keypress(function(event) {
    if (event.which == 13) {
      // make some variables which takes the value of the inputs data
      var printValue = $(".films_input").val();
@@ -23,27 +23,26 @@ $(document).ready(function(){
   });
 });
   //FUNCTIONS
-  //make a function which conver the votes in stars
+  //make a function which convert the votes in stars
   function conversionVote(vote) {
     //make a variable to fix and divide the vote numbers
     var newVote = Math.ceil(vote / 2);
-    //make the handlebars variables
-    var source = $("#stars_template").html();
-    var template = Handlebars.compile(source);
-    var html = template();
     // make empty stars variable
+    var fullStar ="<i class='fas fa-star'></i>";
+    var emptyStar ="<i class='far fa-star'></i>";
     var stars = "";
     // make a cicle "for" to create the stars
-    for (var i = 0; i < newVote; i++){
+    for (var i = 0; i <= 5; i++){
       if (i <= newVote) {
-        stars += html;
+        var star = fullStar;
       } else {
-        stars += html;
+        var star = emptyStar;
       }
     }
     // make a return of stars
     return stars;
   }
+  //make a function which takes the
   //make a function to clear the ul inside the DOM
   function Clear() {
     $("#movies_list li, h1, h3").remove();
@@ -86,7 +85,7 @@ $(document).ready(function(){
          "overview": results[i].overview,
          "idActors": results[i].id || results[i].id,
          "genre": results[i].genre,
-         "vote": results[i].vote_average,
+         "vote": conversionVote(results[i].vote_average),
          "poster_path": SearchImage(results[i].poster_path),
          "original_language": language
      };
@@ -126,7 +125,7 @@ $(document).ready(function(){
          "overview": results[i].overview,
          "idActors": results[i].id || results[i].id,
          "genre": results[i].genre,
-         "vote": results[i].vote_average,
+         "vote": conversionVote(results[i].vote_average),
          "poster_path": SearchImage(results[i].poster_path),
          "original_language": language
        }
