@@ -41,6 +41,12 @@
     <!-- end series list -->
    </main>
    <!-- end main -->
+   <footer>
+    <div class="audio_control">
+     <audio src="audio/Andre Lodemann - Misty Road.mp3" controls autoplay loop>
+     </audio>
+    </div>
+   </footer>
   <!-- movies template -->
   <script id="movies_template" type="text/x-handlebars-template">
    <li class="card_wrapper">
@@ -51,8 +57,8 @@
      <h1>{{title}}</h1>
      <h2>Original title: {{original title}}</h3>
      <p><strong>Overview:</strong> {{overview}}</p>
-     <p>{{idActors}}</p>
-     <p>{{genre}}</p>
+     <p>Cast: {{cast}}</p>
+     <p>Genre: {{genre}}</p>
      <p class="stars_list">Vote: {{vote}}</p>
      <p><img class="flag_lang" src="https:/www.unknown.nu/flags/images/{{original_language}}-100"></p>
     </div>
